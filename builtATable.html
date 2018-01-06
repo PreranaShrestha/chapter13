@@ -31,19 +31,13 @@
 
   for (var i = 0; i < data.length; i++) {
       var row = document.createElement("tr");
+      key.forEach(function(element) {
       var cell = document.createElement("td");
-      var cellText = document.createTextNode(data[i].name);
+      var cellText = document.createTextNode(data[i][element]);
       cell.appendChild(cellText);
       row.appendChild(cell);
-      var cell = document.createElement("td");
-      var cellText = document.createTextNode(data[i].height);
-      cell.appendChild(cellText);
-      cell.style.textAlign = "right";
-      row.appendChild(cell);
-      var cell = document.createElement("td");
-      var cellText = document.createTextNode(data[i].country);
-      cell.appendChild(cellText);
-      row.appendChild(cell);
+    });
+
       table.appendChild(row);
     }
 return(table);
